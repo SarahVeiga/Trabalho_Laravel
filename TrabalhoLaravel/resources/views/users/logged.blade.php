@@ -7,8 +7,8 @@
     <style>
         :root {
             --rosa-claro: #f6a0b5;
-            --rosa-medio: #d16e8f;  /* Tom de rosa médio */
-            --rosa-escuro: #d0637a; /* Tom de rosa um pouco mais escuro */
+            --rosa-medio: #d16e8f;
+            --rosa-escuro: #d0637a;
             --azul-claro: #4d93d7; /* Azul para o botão Sair */
             --cinza-claro: #f1f1f1;
             --cinza-escuro: #333;
@@ -84,6 +84,10 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .btn-container {
@@ -92,13 +96,14 @@
             gap: 20px;
             align-items: center;
             margin-top: 20px;
+            width: 100%; /* Garantir que os botões ocupem toda a largura */
         }
 
         .btn-container a {
             display: block;
             width: 100%;
             padding: 20px;
-            background-color: var(--rosa-escuro); /* Cor mais escura para os outros botões */
+            background-color: var(--rosa-escuro);
             color: white;
             text-align: center;
             text-decoration: none;
@@ -110,32 +115,32 @@
         }
 
         .btn-container a:hover {
-            background-color: var(--rosa-claro); /* Cor mais clara no hover */
+            background-color: var(--rosa-claro);
             transform: translateY(-5px);
         }
 
         .btn-logout {
             display: block;
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background-color: var(--azul-claro); /* Botão "Sair" com azul claro */
             color: white;
-            text-align: centER;
+            text-align: center;
             text-decoration: none;
             border-radius: var(--borda-arredondada);
             font-size: 16px;
-            margin-top: 30px; /* Aumentei o espaçamento superior para centralizar melhor */
-            transition: background-color 0.9s, transform 0.9s;
+            margin-top: 30px;
+            transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-logout:hover {
-            background-color: var(--vermelho-erro); /* Cor vermelha no hover */
+            background-color: var(--vermelho-erro);
             transform: translateY(-5px);
         }
 
         .btn-logout:active {
-            background-color: var(--vermelho-erro); /* Quando pressionado, permanece vermelho */
+            background-color: var(--vermelho-erro);
             transform: translateY(2px);
         }
 
@@ -171,6 +176,7 @@
             <a href="{{ route('register') }}">Cadastrar</a>
         </div>
 
+        <!-- Botão "Sair" centralizado -->
         <a href="{{ route('logout') }}" class="btn-logout">Sair</a>
     </div>
 
