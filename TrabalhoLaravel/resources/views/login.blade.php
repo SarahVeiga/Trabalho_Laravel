@@ -6,75 +6,90 @@
     <title>Login</title>
     <style>
         :root {
+            --rosa-bebe: #f9c1d9;
             --rosa-claro: #f6a0b5;
-            --lilas: #b3a3d9;
-            --verde-agua: #93b3ff;
-            --amarelo-claro: #f9f6a3;
-            --azul-bebe: #d8f4e0;
+            --rosa-escuro: #f2889a;
+            --rosa-escuro-botao: #d16e8f; /* Cor mais escura para o botão */
+            --rosa-escuro-link: #9f4d7b; /* Cor mais escura para o link */
         }
 
         body {
-            background-color: var(--azul-bebe);
+            background: linear-gradient(135deg, #d34f7bff 0%, #e8a7eeff 100%); /* Gradiente de fundo */
             font-family: Arial, sans-serif;
             color: #4a4a4a;
-            padding: 20px;
+            padding: 0;
             margin: 0;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            overflow: hidden;
         }
 
         h1 {
-            color: var(--rosa-claro);
+            color: #000000; /* Cor preta para o título */
             font-size: 36px;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         .container {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 30px;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
             width: 400px;
-            margin: 0 auto;
+            text-align: center;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin: 10px 0;
+            padding: 15px;
+            margin: 12px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 16px;
             background-color: #f9f9f9;
         }
 
         button {
             width: 100%;
-            padding: 12px;
-            background-color: var(--rosa-claro);
+            padding: 15px;
+            background-color: var(--rosa-escuro-botao); /* Cor do botão mais escura */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: var(--lilas);
+            background-color: var(--rosa-escuro); /* Efeito de hover */
         }
 
         a {
             display: block;
             margin-top: 15px;
-            color: var(--verde-agua);
+            color: var(--rosa-escuro-link); /* Cor mais escura para o link */
             text-decoration: none;
+            font-size: 14px;
         }
 
         a:hover {
-            color: var(--amarelo-claro);
+            color: var(--rosa-claro); /* Cor mais clara no hover */
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        /* Efeito de ondas no fundo */
+        .waves {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png') repeat;
+            background-color: rgba(255, 255, 255, 0.4);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
         }
     </style>
 </head>
@@ -82,24 +97,18 @@
 
     <div class="container">
         <h1>Faça o seu Login</h1>
-
         <form method="POST" action="{{ route('login.attempt') }}">
             @csrf
-            <div class="form-group">
-                <input name="email" type="email" placeholder="Email" required>
-            </div>
-
-            <div class="form-group">
-                <input name="password" type="password" placeholder="Senha" required>
-            </div>
-
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Senha" required>
             <button type="submit">Entrar</button>
         </form>
 
         <a href="{{ route('edit', 1) }}">Esqueceu a senha?</a>
     </div>
 
+    <!-- Efeito de ondas no fundo -->
+    <div class="waves"></div>
+
 </body>
 </html>
-
-
